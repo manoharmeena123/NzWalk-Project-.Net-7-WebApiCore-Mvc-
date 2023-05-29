@@ -35,7 +35,7 @@ namespace NzWalkWebApi.Controllers
         // GET ALL REGION ==========================================>
         // GET : // http://localhost:portNumber/api/regions
         [HttpGet]
-        [Authorize(Roles ="Reader")]
+        [Authorize(Roles ="Reader,Writer")]
         public async Task<IActionResult> GetAll()
         {
             //Get Data from Database - Domain Models
@@ -116,7 +116,7 @@ namespace NzWalkWebApi.Controllers
         // DELETE : // http://localhost:portNumber/api/regions/{id}
         [HttpDelete]
         [Route("{id:Guid}")]
-        [Authorize]
+        [Authorize(Roles = "Writer")]
         public async  Task<IActionResult> DELETE([FromRoute] Guid id)
         {
             var regionDomainModel = await regionRepository.DeleteAsync(id);
