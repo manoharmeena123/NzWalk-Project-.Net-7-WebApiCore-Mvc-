@@ -1,11 +1,15 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using NzWalkWebApi.CustomActionFilters;
 using NzWalkWebApi.Data;
 using NzWalkWebApi.Models.Domain;
 using NzWalkWebApi.Models.DTO;
 using NzWalkWebApi.Repositories;
+using System.Web.Http.ModelBinding;
 
 namespace NzWalkWebApi.Controllers
 {
@@ -13,6 +17,7 @@ namespace NzWalkWebApi.Controllers
 
     [Route("api/[controller]")]
     [ApiController]
+   
     public class RegionsController : ControllerBase
     {
         private readonly NZWalksDbContext dbContext;
@@ -27,9 +32,10 @@ namespace NzWalkWebApi.Controllers
             this.mapper = mapper;
         }
 
-        // GET SLL REGION ==========================================>
+        // GET ALL REGION ==========================================>
         // GET : // http://localhost:portNumber/api/regions
         [HttpGet]
+        [Authorize(Roles ="Reader")]
         public async Task<IActionResult> GetAll()
         {
             //Get Data from Database - Domain Models
@@ -46,6 +52,7 @@ namespace NzWalkWebApi.Controllers
         // GET : // http://localhost:portNumber/api/regions/{id}
         [HttpGet]
         [Route("{id:Guid}")]
+        [Authorize(Roles ="Reader")]
         public async Task<IActionResult> GetById([FromRoute] Guid id)
         {
             // var region = dbContext.Regions.Find(id);
@@ -64,9 +71,12 @@ namespace NzWalkWebApi.Controllers
 
         //POST=========================================================>
         [HttpPost]
+        [ValidateModel]
+        [Authorize(Roles = "Writer")]
         public async  Task<IActionResult> Create([FromBody] AddRegionRequestDto addRegionRequestDto)
         {
-            //Map Dto to Domain model
+          
+                //Map Dto to Domain model
             var regionDomainModel = mapper.Map<Region>(addRegionRequestDto);
                    // USe Domain Model Create Region
               regionDomainModel = await regionRepository.CreateAsync(regionDomainModel);
@@ -74,35 +84,39 @@ namespace NzWalkWebApi.Controllers
             //Map Domain Model to create Region
             var regionDto = mapper.Map<RegionDto>(regionDomainModel);
             return CreatedAtAction(nameof(GetById), new {id = regionDto.Id}, regionDto);
+            }
+     
+    
+    //PUT============================================================>
+    // PUT : // http://localhost:portNumber/api/regions/{id}
+    [HttpPut]
+    [Route("{id:Guid}")]
+    [ValidateModel]
+     [Authorize(Roles = "Writer")]
+        public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] UpdateRegionRequestDto updateRegionRequestDto)
+    {
+
+        //Map DTO to Domain Model
+        var regionDomainModel = mapper.Map<Region>(updateRegionRequestDto);
+        // check if region exist
+        regionDomainModel = await regionRepository.UpdateAsync(id, regionDomainModel);
+
+        if (regionDomainModel == null)
+        {
+            return NotFound();
         }
 
+        // Convert Domain Model to Dto
+        var regionDto = mapper.Map<RegionDto>(regionDomainModel);
+        return Ok(regionDto);
 
-        //PUT============================================================>
-        // PUT : // http://localhost:portNumber/api/regions/{id}
-        [HttpPut]
-        [Route("{id:Guid}")]
-        public async  Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] UpdateRegionRequestDto updateRegionRequestDto)
-        {
-            //Map DTO to Domain Model
-
-            var regionDomainModel = mapper.Map<Region>(updateRegionRequestDto);
-            // check if region exist
-            regionDomainModel = await regionRepository.UpdateAsync(id, regionDomainModel);
-
-             if(regionDomainModel == null){
-                return NotFound();
-            }
-
-
-            // Convert Domain Model to Dto
-            var regionDto = mapper.Map<RegionDto>(regionDomainModel);
-            return Ok(regionDto);
         }
 
         //Delete==============================================================>
         // DELETE : // http://localhost:portNumber/api/regions/{id}
         [HttpDelete]
         [Route("{id:Guid}")]
+        [Authorize]
         public async  Task<IActionResult> DELETE([FromRoute] Guid id)
         {
             var regionDomainModel = await regionRepository.DeleteAsync(id);
@@ -111,7 +125,6 @@ namespace NzWalkWebApi.Controllers
                 return NotFound();
             }
        
-
             //return 
             var regionDto = mapper.Map<RegionDto>(regionDomainModel);
             return Ok(regionDto);
