@@ -54,7 +54,7 @@ namespace NzWalkWebApi.Controllers
             var walkDto = mapper.Map<List<WalkDto>>(walksDomainModel);
             
             // create an exception
-            throw new Exception("This is a new exception..");
+            
             return Ok(walkDto);
         }
 

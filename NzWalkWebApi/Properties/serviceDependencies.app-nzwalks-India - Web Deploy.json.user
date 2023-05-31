@@ -1,0 +1,34 @@
+{
+  "dependencies": {
+    "mssql2": {
+      "restored": true,
+      "restoreTime": "2023-05-31T12:35:32.8080294Z"
+    },
+    "mssql1": {
+      "restored": true,
+      "restoreTime": "2023-05-31T12:34:17.4155047Z"
+    }
+  },
+  "parameters": {
+    "mssql1.subscriptionId": {
+      "Name": "mssql1.subscriptionId",
+      "Type": "subscription",
+      "Value": "eab804a4-3dae-47b3-9903-12e50e16ef88"
+    },
+    "mssql1.resourceGroupName": {
+      "Name": "mssql1.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "nz-walks"
+    },
+    "mssql2.resourceGroupName": {
+      "Name": "mssql2.resourceGroupName",
+      "Type": "resourceGroup",
+      "Value": "nz-walks"
+    },
+    "mssql2.subscriptionId": {
+      "Name": "mssql2.subscriptionId",
+      "Type": "subscription",
+      "Value": "eab804a4-3dae-47b3-9903-12e50e16ef88"
+    }
+  }
+}
