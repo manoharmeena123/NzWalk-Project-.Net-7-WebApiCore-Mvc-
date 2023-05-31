@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
+using NzWalkWebApi.Models.Domain;
 
 namespace NzWalkWebApi.Data
 {
@@ -9,6 +10,7 @@ namespace NzWalkWebApi.Data
         public NZWalksAuthDbContext(DbContextOptions<NZWalksAuthDbContext> options) : base(options)
         {
         }
+
 
         protected override void OnModelCreating(ModelBuilder builder)
         {

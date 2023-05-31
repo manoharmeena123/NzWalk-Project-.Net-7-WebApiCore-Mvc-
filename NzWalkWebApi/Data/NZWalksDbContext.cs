@@ -89,6 +89,7 @@ namespace NzWalkWebApi.Data
 
             modelBuilder.Entity<Region>().HasData(regions);
         }
-    
+
+     
     }
 }

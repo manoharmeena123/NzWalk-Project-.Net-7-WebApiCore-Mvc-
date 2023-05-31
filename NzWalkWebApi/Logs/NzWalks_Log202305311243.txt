@@ -1,0 +1,7 @@
+2023-05-31 12:43:27.126 +05:30 [FTL] Application startup exception
+System.InvalidOperationException: An error occurred when configuring the exception handler middleware. Either the 'ExceptionHandlingPath' or the 'ExceptionHandler' property must be set in 'UseExceptionHandler()'. Alternatively, set one of the aforementioned properties in 'Startup.ConfigureServices' as follows: 'services.AddExceptionHandler(options => { ... });' or configure to generate a 'ProblemDetails' response in 'service.AddProblemDetails()'.
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddlewareImpl..ctor(RequestDelegate next, ILoggerFactory loggerFactory, IOptions`1 options, DiagnosticListener diagnosticListener, IProblemDetailsService problemDetailsService)
+   at Microsoft.AspNetCore.Builder.ExceptionHandlerExtensions.<>c__DisplayClass4_0.<SetExceptionHandlerMiddleware>b__0(RequestDelegate next)
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Builder.ApplicationBuilder.Build()
+   at Microsoft.AspNetCore.Hosting.GenericWebHostService.StartAsync(CancellationToken cancellationToken)
