@@ -22,7 +22,6 @@ namespace NzWalkWebApi.Controllers
 
 
 
-
         //POST: Register==================================================================>
         [HttpPost]
         [Route("Register")]
