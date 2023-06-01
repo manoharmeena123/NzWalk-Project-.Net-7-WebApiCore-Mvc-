@@ -1,6 +1,12 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <parameters>
-  <parameter name="IIS Web Application Name" description="" value="app-nzwalks-India" tags="IisApp">
+  <parameter name="IIS Web Application Name" description="" value="nzwalksProjectApp" tags="IisApp">
     <parameterEntry kind="ProviderPath" scope="IisApp" match="^C:\\Users\\user\.MDEVPC-116\\Desktop\\C-sharp\\NzWalkWebApi\\NzWalkWebApi\\obj\\Release\\net7\.0\\PubTmp\\Out\\$" />
+  </parameter>
+  <parameter name="NzWalkWebApi.Data.NZWalksAuthDbContext" description="" value="Data Source=tcp:nzwalksproject.database.windows.net,1433;Initial Catalog=nzwalksproject;User Id=nzwalksproject@nzwalksproject;Password=walksproject@123" tags="dbfullsql">
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\user\.MDEVPC-116\\Desktop\\C-sharp\\NzWalkWebApi\\NzWalkWebApi\\obj\\Release\\net7\.0\\PubTmp\\EFSQLScripts\\NzWalkWebApi\.Data\.NZWalksAuthDbContext\.sql$" />
+  </parameter>
+  <parameter name="NzWalkWebApi.Data.NZWalksDbContext" description="" value="Data Source=tcp:nzwalksproject.database.windows.net,1433;Initial Catalog=nzwalksproject;User Id=nzwalksproject@nzwalksproject;Password=walksproject@123" tags="dbfullsql">
+    <parameterEntry kind="ProviderPath" scope="dbfullsql" match="^C:\\Users\\user\.MDEVPC-116\\Desktop\\C-sharp\\NzWalkWebApi\\NzWalkWebApi\\obj\\Release\\net7\.0\\PubTmp\\EFSQLScripts\\NzWalkWebApi\.Data\.NZWalksDbContext\.sql$" />
   </parameter>
 </parameters>

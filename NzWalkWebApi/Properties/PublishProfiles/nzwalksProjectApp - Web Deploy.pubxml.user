@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit https://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project>
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAZ/3T6swwJEaRzQ6OK42sGQAAAAACAAAAAAAQZgAAAAEAACAAAABObFwNKnzfwUtKYDqjW2kBV3BFPr817IvvJFB7Fc22WQAAAAAOgAAAAAIAACAAAADzXHPqj2pGO68fusO1mB32FPT6lPOybu6HUyvLKoGs3YAAAAC+V3VyydjNHsGW0CYXpR0H6Hj8BuwB4+Ka8h0EP05Ctill7mvqiB1hx7SjIzWJc12DbTL3fNXfLx+66RdhykvvpLltzs2LgGaEHPG2fO2yFLFJdnJZWoPNJBj6glhH4xPrHNuLSi22eo0pLoQRou/MUUo+7qJj/3wWtG/txxVgB0AAAAAmHQolO0y8mbuTUbnJDdi/FoZQuwNrjE2IdVQqmw4U0Lz08U807ZWV0NbIzBQpgz5zH1fJUPmY56QoyPXGZ7O3</EncryptedPassword>
+    <History>True|2023-06-01T06:06:36.1946889Z;True|2023-06-01T11:32:51.4347801+05:30;</History>
+    <LastFailureDetails />
+  </PropertyGroup>
+  <ItemGroup>
+    <EFMigrations Include="NzWalkWebApi.Data.NZWalksAuthDbContext">
+      <Value>Data Source=tcp:nzwalksproject.database.windows.net,1433%3bInitial Catalog=nzwalksproject%3bUser Id=nzwalksproject%40nzwalksproject%3bPassword=walksproject%40123</Value>
+    </EFMigrations>
+    <EFMigrations Include="NzWalkWebApi.Data.NZWalksDbContext">
+      <Value>Data Source=tcp:nzwalksproject.database.windows.net,1433%3bInitial Catalog=nzwalksproject%3bUser Id=nzwalksproject%40nzwalksproject%3bPassword=walksproject%40123</Value>
+    </EFMigrations>
+  </ItemGroup>
+</Project>
