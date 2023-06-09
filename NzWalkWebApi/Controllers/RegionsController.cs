@@ -36,6 +36,7 @@ namespace NzWalkWebApi.Controllers
             this.logger = logger;
         }
 
+
         // GET ALL REGION ==========================================>
         // GET : // http://localhost:portNumber/api/regions
         [HttpGet]
@@ -45,8 +46,9 @@ namespace NzWalkWebApi.Controllers
 
             try
             {
-                //throw new Exception("this is a custom exception");
-     //Get Data from Database - Domain Models
+
+        //throw new Exception("this is a custom exception");
+        //Get Data from Database - Domain Models
             var regionsDomain = await regionRepository.GetAllAsync();
 
             logger.LogInformation($"Finished GetallRegions request with data :{System.Text.Json.JsonSerializer.Serialize(regionsDomain)}");
