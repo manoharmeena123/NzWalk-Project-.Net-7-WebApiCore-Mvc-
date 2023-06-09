@@ -1,0 +1,35 @@
+﻿@model IEnumerable<NZWalksUI.Models.DTO.RegionDto>
+
+@{
+}
+
+<h1 class="mt-3">Regions</h1>
+
+<div  class="d-flex justify-content-end">
+    <a class="btn btn-secondary" asp-controller="Regions" asp-action="Add">Add</a>
+</div>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Code</th>
+            <th>Name</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var walk in Model)
+        {
+
+            <tr>
+                <td>@walk.Id</td>
+                <td>@walk.Code</td>
+                <td>@walk.Name</td>
+                <td>@walk.RegionImageUrl</td>
+                 <td>
+                     <a asp-asp-controller="Regions" asp-action="Edit" asp-route-id="@walk.Id"
+                     class="btn btn-light">Edit</a>
+                 </td>
+            </tr>
+        }
+    </tbody>
+</table>

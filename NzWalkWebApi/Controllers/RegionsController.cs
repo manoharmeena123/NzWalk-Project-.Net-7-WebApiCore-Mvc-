@@ -44,7 +44,7 @@ namespace NzWalkWebApi.Controllers
 
             try
             {
-                throw new Exception("this is a custom exception");
+                //throw new Exception("this is a custom exception");
      //Get Data from Database - Domain Models
             var regionsDomain = await regionRepository.GetAllAsync();
 
@@ -68,7 +68,7 @@ namespace NzWalkWebApi.Controllers
         // GET : // http://localhost:portNumber/api/regions/{id}
         [HttpGet]
         [Route("{id:Guid}")]
-        [Authorize(Roles ="Reader")]
+       // [Authorize(Roles ="Reader")]
         public async Task<IActionResult> GetById([FromRoute] Guid id)
         {
             // var region = dbContext.Regions.Find(id);
@@ -88,7 +88,7 @@ namespace NzWalkWebApi.Controllers
         //POST=========================================================>
         [HttpPost]
         [ValidateModel]
-        [Authorize(Roles = "Writer")]
+       // [Authorize(Roles = "Writer")]
         public async  Task<IActionResult> Create([FromBody] AddRegionRequestDto addRegionRequestDto)
         {
           
@@ -108,7 +108,7 @@ namespace NzWalkWebApi.Controllers
     [HttpPut]
     [Route("{id:Guid}")]
     [ValidateModel]
-     [Authorize(Roles = "Writer")]
+    // [Authorize(Roles = "Writer")]
         public async Task<IActionResult> UpdateAsync([FromRoute] Guid id, [FromBody] UpdateRegionRequestDto updateRegionRequestDto)
     {
 
@@ -132,7 +132,7 @@ namespace NzWalkWebApi.Controllers
         // DELETE : // http://localhost:portNumber/api/regions/{id}
         [HttpDelete]
         [Route("{id:Guid}")]
-        [Authorize(Roles = "Writer")]
+     //   [Authorize(Roles = "Writer")]
         public async  Task<IActionResult> DELETE([FromRoute] Guid id)
         {
             var regionDomainModel = await regionRepository.DeleteAsync(id);
