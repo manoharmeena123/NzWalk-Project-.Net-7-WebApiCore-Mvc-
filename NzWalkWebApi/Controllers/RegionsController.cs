@@ -12,13 +12,14 @@ using NzWalkWebApi.Models.DTO;
 using NzWalkWebApi.Repositories;
 using System.Web.Http.ModelBinding;
 using System.Text.Json;
+
+
 namespace NzWalkWebApi.Controllers
 {
 
-
     [Route("api/[controller]")]
     [ApiController]
-   
+
     public class RegionsController : ControllerBase
     {
         private readonly NZWalksDbContext dbContext;
