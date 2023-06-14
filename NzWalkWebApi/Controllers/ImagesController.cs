@@ -17,7 +17,7 @@ namespace NzWalkWebApi.Controllers
             this.imageRepository = imageRepository;
         }
 
-        
+
         //POST:/api/Images/Upload
         [HttpPost]
         [Route("Upload")]
@@ -36,7 +36,6 @@ namespace NzWalkWebApi.Controllers
                     FileName = request.FileName,
                     FileDescription = request.FileDescription,
                 };
-
 
                 //User repositry to upload image
                 await imageRepository.Upload(imageDomainModel);
