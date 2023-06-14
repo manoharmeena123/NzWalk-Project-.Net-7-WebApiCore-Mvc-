@@ -123,13 +123,13 @@ namespace NZWalksUI.Controllers
 
               [HttpPost]
             public async Task<IActionResult>Delete(RegionDto request)
-            {
+             {
                 try
                 {
                     var client = httpClientFactory.CreateClient();
                     var httpResponsMessage = await client.DeleteAsync($"https://localhost:7150/api/regions/{request.Id}");
                     httpResponsMessage.EnsureSuccessStatusCode();
-                    return RedirectToAction("Index", "RegionDto");
+                    return RedirectToAction("Index", "Regions");
                 }
                 catch (Exception ex)
                 {

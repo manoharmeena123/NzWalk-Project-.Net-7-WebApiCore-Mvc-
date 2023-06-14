@@ -8,6 +8,7 @@ namespace NzWalkWebApi.Controllers
     [ApiController]
     public class StudentsController : ControllerBase
     {
+        
         [HttpGet]
         public IActionResult GetAllStudent()
         {
