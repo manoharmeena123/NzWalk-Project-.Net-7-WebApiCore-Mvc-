@@ -16,6 +16,8 @@ namespace NzWalkWebApi.Controllers
         {
             this.imageRepository = imageRepository;
         }
+
+        
         //POST:/api/Images/Upload
         [HttpPost]
         [Route("Upload")]
